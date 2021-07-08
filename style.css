@@ -28,6 +28,10 @@ input[type=button] {
     margin: 0px 0px 10px 0px;
 }
 
+.small-text {
+    font-size: 16pt;
+}
+
 .notification { 
     text-align: left; 
     padding:5px;
@@ -36,6 +40,6 @@ input[type=button] {
     margin: 10px 0px; 
 }
 .notification p { 
-    margin: 5px 0px;
+    margin: 5px;
     font-size: 12pt;
 }

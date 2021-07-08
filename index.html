@@ -1,53 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="script.js"></script>
     <title>osu! Scope Converter</title>
 
 </head>
+
 <body>
     <div class="main_box">
         <form name="tablet" method="post">
-            타블렛 정보<br>(Tablet Size)<br>
+            전체 타블렛 크기<br>(Full Tablet Size)<br>
             <img src="tablet_400.jpg" alt="타블렛 이미지"><br>
-            <input type="number" id="tablet_bot" placeholder="아래" value="9500"><br>
-            <input type="number" id="tablet_right" placeholder="오른쪽" value="15200">
-        </form>
-        
-        <form name="old_info" method="post">
-            직접입력을 사용한 정보<br>(Old Resoultion)<br>
-            <input type="number" id="old_width" placeholder="width"><input type="number" id="old_height" placeholder="height"> <br>
-            <input type="number" id="sensitivity" placeholder="sensitivity" value="1.0" step="0.1">
-        </form>
-        
-        <form name="new_info" method="post">
-            변경할 해상도<br>(New Resoultion)<br>
-            <input type="number" id="new_width" placeholder="width"><input type="number" id="new_height" placeholder="height">
+            <input required type="number" id="tablet_size_bottom" placeholder="Heigth" value=""><br>
+            <input required type="number" id="tablet_size_right" placeholder="Width" value="">
         </form>
 
-        <input type="button" value="계산 (Calc)" onclick="calc()"><br>
+        <form name="tablet_mapping">
+            사용 중인 타블렛 좌표<br>(Area currently in use)<br>
+            <input type="number" id="tablet_area_top" placeholder="Top" value=""><input type="number"
+                id="tablet_area_bottom" placeholder="Bottom" value=""><br>
+            <input type="number" id="tablet_area_left" placeholder="Left" value=""><input type="number"
+                id="tablet_area_right" placeholder="Right" value=""><br>
+            <div>⬇[Auto Calc]⬇</div>
+            <input required type="number" id="tablet_area_width" placeholder="Width" value=""><input required
+                type="number" id="tablet_area_height" placeholder="Height" value=""><br>
+        </form>
+
+        <form name="old_info" method="post">
+            현재 해상도와 마우스감도<br><span class="small-text">(Resolution and speed currently in use)</span><br>
+            <input required type="number" id="now_width" placeholder="Width" value=""><input required type="number"
+                id="now_height" placeholder="Height" value=""> <br>
+            <input required type="number" id="now_speed" placeholder="sensitivity" value="1.0" step="0.1">
+        </form>
+
+        <form name="new_info" method="post">
+            변경할 해상도<br>(New Resolution)<br>
+            <input required type="number" id="new_width" placeholder="width" value="1920"><input required type="number"
+                id="new_height" placeholder="height" value="1080">
+        </form>
+
+        <input type="button" id="calc_button" value="계산 (Calc)" onclick="calc()"><br>
 
         <br>
         <form name="result" method="post">
             결과<br>(Result)<br>
-            <input type="number" id="ans_top" placeholder="위" readonly><input type="number" id="ans_bot" placeholder="아래" readonly><br>
-            <input type="number" id="ans_left" placeholder="왼쪽" readonly><input type="number" id="ans_right" placeholder="오른쪽" readonly><br>
+            <input type="number" id="result_top" placeholder="위" readonly><input type="number" id="result_bottom"
+                placeholder="아래" readonly><br>
+            <input type="number" id="result_left" placeholder="왼쪽" readonly><input type="number" id="result_rigth"
+                placeholder="오른쪽" readonly><br>
             위 값으로 타블렛을 매핑해주세요
         </form>
-        
+
         <div class="notification">
             <h3>사용 예</h3>
-            <p>타블렛 매핑을 하지 않고, 마우스 감도를 높여 사용한 경우</p>
+            <p>1. osu!에서 지원하는 마우스 감도를 높여 사용한 경우</p>
+            <p>2. osu! 해상도를 변경한 경우</p>
         </div>
 
         <div class="notification">
-        <h3>알림</h3>
-        <p>1. 5:4 -> 16:9 만 확인되었습니다.</p>
-        <p>2. 변경할 해상도는 전체화면을 기준으로 작성해주세요.<br>(모니터 해상도와 osu!해상도가 같은 전체화면)<br>나중에 개선하겠습니다 ㅠㅠ</p>
+            <h3>알림</h3>
+            <p>1. 다 수정하고 아침 8시에 잤습니다. (^q^)</p>
+            <p>2. 결과가 나오지 않으면 빠뜨린 입력창이 있는지 확인해 주세요 </p>
         </div>
     </div>
+
+    <script type="text/javascript" src="script.js"></script>
 </body>
+
 </html>
