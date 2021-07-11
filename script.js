@@ -1,4 +1,6 @@
-function calc() {
+function calc(event) {
+    event.preventDefault();
+
     // 전체 타블렛 크기
     let tabletSizeWidth = parseInt(document.getElementById("tablet_size_right").value);
     let tabletSizeHeight = parseInt(document.getElementById("tablet_size_bottom").value);
@@ -65,6 +67,10 @@ const elementTabletAreaLeft = document.getElementById("tablet_area_left");
 const elementTabletAreaRight = document.getElementById("tablet_area_right");
 const elementTabletAreaWidth = document.getElementById("tablet_area_width");
 const elementTabletAreaHeight = document.getElementById("tablet_area_height");
+const elementForm = document.getElementById("calc-data");
+
+elementForm.addEventListener("submit", calc);
+
 
 // 가로
 elementTabletAreaLeft.addEventListener("input", calcAreaWidth);

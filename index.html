@@ -11,48 +11,49 @@
 
 <body>
     <div class="main_box">
-        <form name="tablet" method="post">
-            전체 타블렛 크기<br>(Full Tablet Size)<br>
-            <img src="img/tablet_400.jpg" alt="타블렛 이미지"><br>
-            <input required type="number" id="tablet_size_bottom" placeholder="Heigth" value=""><br>
-            <input required type="number" id="tablet_size_right" placeholder="Width" value="">
+        <form id="calc-data">
+            <div class="data-form">
+                전체 타블렛 크기<br>(Full Tablet Size)<br>
+                <img src="img/tablet_400.jpg" alt="타블렛 이미지"><br>
+                <input required type="number" id="tablet_size_bottom" placeholder="Heigth" value=""><br>
+                <input required type="number" id="tablet_size_right" placeholder="Width" value="">
+            </div>
+
+            <div class="data-form">
+                사용 중인 타블렛 좌표<br>(Area currently in use)<br>
+                <input type="number" id="tablet_area_top" placeholder="Top" value=""><input type="number"
+                    id="tablet_area_bottom" placeholder="Bottom" value=""><br>
+                <input type="number" id="tablet_area_left" placeholder="Left" value=""><input type="number"
+                    id="tablet_area_right" placeholder="Right" value=""><br>
+                <div>⬇[Auto Calc]⬇</div>
+                <input required type="number" id="tablet_area_width" placeholder="Width" value=""><input required
+                    type="number" id="tablet_area_height" placeholder="Height" value=""><br>
+            </div>
+
+            <div class="data-form">
+                현재 해상도와 마우스감도<br><span class="small-text">(Resolution and speed currently in use)</span><br>
+                <input required type="number" id="now_width" placeholder="Width" value=""><input required type="number"
+                    id="now_height" placeholder="Height" value=""> <br>
+                <input required type="number" id="now_speed" placeholder="sensitivity" value="1.0" step="0.1">
+            </div>
+
+            <div class="data-form">
+                변경할 해상도<br>(New Resolution)<br>
+                <input required type="number" id="new_width" placeholder="width" value="1920"><input required type="number"
+                    id="new_height" placeholder="height" value="1080">
+            </div>
+            <button>계산 (Calc)</button>
+            <br>
         </form>
-
-        <form name="tablet_mapping">
-            사용 중인 타블렛 좌표<br>(Area currently in use)<br>
-            <input type="number" id="tablet_area_top" placeholder="Top" value=""><input type="number"
-                id="tablet_area_bottom" placeholder="Bottom" value=""><br>
-            <input type="number" id="tablet_area_left" placeholder="Left" value=""><input type="number"
-                id="tablet_area_right" placeholder="Right" value=""><br>
-            <div>⬇[Auto Calc]⬇</div>
-            <input required type="number" id="tablet_area_width" placeholder="Width" value=""><input required
-                type="number" id="tablet_area_height" placeholder="Height" value=""><br>
-        </form>
-
-        <form name="old_info" method="post">
-            현재 해상도와 마우스감도<br><span class="small-text">(Resolution and speed currently in use)</span><br>
-            <input required type="number" id="now_width" placeholder="Width" value=""><input required type="number"
-                id="now_height" placeholder="Height" value=""> <br>
-            <input required type="number" id="now_speed" placeholder="sensitivity" value="1.0" step="0.1">
-        </form>
-
-        <form name="new_info" method="post">
-            변경할 해상도<br>(New Resolution)<br>
-            <input required type="number" id="new_width" placeholder="width" value="1920"><input required type="number"
-                id="new_height" placeholder="height" value="1080">
-        </form>
-
-        <input type="button" id="calc_button" value="계산 (Calc)" onclick="calc()"><br>
-
         <br>
-        <form name="result" method="post">
+        <div class="data-form">
             결과<br>(Result)<br>
             <input type="number" id="result_top" placeholder="위" readonly><input type="number" id="result_bottom"
                 placeholder="아래" readonly><br>
             <input type="number" id="result_left" placeholder="왼쪽" readonly><input type="number" id="result_rigth"
                 placeholder="오른쪽" readonly><br>
             위 값으로 타블렛을 매핑해주세요
-        </form>
+        </div>
 
         <div class="notification">
             <h3>사용 예</h3>
@@ -63,7 +64,9 @@
         <div class="notification">
             <h3>알림</h3>
             <p>1. 다 수정하고 아침 8시에 잤습니다. (^q^)</p>
-            <p>2. 결과가 나오지 않으면 빠뜨린 입력창이 있는지 확인해 주세요 </p>
+            <p>2. F12를 눌러 콘솔을 확인하면 계산 결과의 가로와 세로 길이를 알 수 있습니다.</p>
+            <p>3. 음수가 나오는 경우는 타블렛 범위가 큰 경우입니다. 새로운 타블렛 범위를 만들어 사용하세요.
+            </p>
         </div>
     </div>
 
